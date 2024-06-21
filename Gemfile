@@ -27,6 +27,8 @@ gem "sassc-rails"
 gem 'devise'
 gem 'devise-bootstrap-views'
 
+gem 'stripe'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

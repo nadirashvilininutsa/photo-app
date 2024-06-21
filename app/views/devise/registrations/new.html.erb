@@ -3,12 +3,12 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= bootstrap_devise_error_messages! %>
 
-  <div class="form-group">
+  <div class="form-group mt-3">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group mt-3">
     <%= f.label :password %>
     <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
 
@@ -17,10 +17,45 @@
     <% end %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group mt-3">
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control' %>
   </div>
+
+
+  <%= fields_for( :payment ) do |p| %>
+    <div class="row col-md-12">
+      <div class="form-group col-md-4 mt-3">
+        <%= p.label :card_number, "Card Number", data: { stripe: 'label'} %>
+        <%= p.text_field :card_number, class: "form-control", required: true, data: { stripe: 'number'} %>
+      </div>
+
+      <div class="form-group col-md-2 mt-3">
+        <%= p.label :card_cvc, "Card CVC", data: { stripe: 'label'} %>
+        <%= p.text_field :card_cvc, class: "form-control", required: true, data: { stripe: 'cvc'} %>
+      </div>
+
+      <div class="form-group col-md-6 mt-3">
+        <div class="col-md-12">
+          <%= p.label :card_expires, "Card Expires", data: { stripe: 'label'} %>
+        </div>
+
+        <div class="col-md-3">
+          <%= p.select :card_expires_month, options_for_select(Payment.month_options),
+                      { include_blank: 'Month' },
+                      data: { stripe: "exp-month" },
+                      class: "form-control", required: true %>
+        </div>
+
+        <div class="col-md-3 mt-2 mb-3">
+          <%= p.select :card_expires_year, options_for_select(Payment.year_options.push),
+                      { include_blank: 'Year' },
+                      class: "form-control",
+                      data: { stripe: "exp-year" }, required: true %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <%= f.submit t('.sign_up'), class: 'btn btn-primary' %>
