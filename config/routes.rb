@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :registrations => 'registrations' }
+  resources :images
+  devise_for :users, controllers: { registrations: "registrations" }
   root "welcome#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
