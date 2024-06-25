@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   rescue_from Stripe::CardError, Stripe::InvalidRequestError, with: :catch_exception
-  
+
   def create
     @amount = 5
     build_resource(sign_up_params)
@@ -21,9 +21,9 @@ class RegistrationsController < Devise::RegistrationsController
     charge = Stripe::Charge.create(
       amount: (@amount * 100),
       source: params[:stripeToken],
-      currency: 'usd'
+      currency: "usd"
     )
-    
+
     if charge[:paid]
       register_user
     else
@@ -44,7 +44,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def handle_registration_errors
     if resource.invalid?
-      flash[:alert] = resource.errors.full_messages.join(', ')
+      flash[:alert] = resource.errors.full_messages.join(", ")
     else
       flash[:alert] = "Email has already been taken"
     end

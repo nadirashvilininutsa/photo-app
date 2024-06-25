@@ -24,12 +24,16 @@ gem "jbuilder"
 gem "bootstrap"
 gem "sassc-rails"
 
-gem 'devise'
-gem 'devise-bootstrap-views'
+gem "devise"
+gem "devise-bootstrap-views"
 
-gem 'stripe'
+gem "stripe"
 
-gem 'byebug'
+gem "byebug"
+
+gem "carrierwave"
+gem "mini_magick"
+# gem 'fog'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

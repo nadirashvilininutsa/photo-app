@@ -78,5 +78,5 @@ Rails.application.configure do
   # config.generators.apply_rubocop_autocorrect_after_generate!
 
   config.action_mailer.delivery_method = :test
-  config.action_mailer.default_url_options = { :host => 'http://localhost:3000'}
+  config.action_mailer.default_url_options = { host: "http://localhost:3000" }
 end

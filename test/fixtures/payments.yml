@@ -5,7 +5,4 @@ one:
   token: MyString
   user_id: 1
 
-two:
-  email: MyString
-  token: MyString
-  user_id: 1
+
