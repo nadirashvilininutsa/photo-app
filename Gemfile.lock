@@ -119,6 +119,9 @@ GEM
       image_processing (~> 1.1)
       marcel (~> 1.0.0)
       ssrf_filter (~> 1.0)
+    carrierwave-aws (1.6.0)
+      aws-sdk-s3 (~> 1.0)
+      carrierwave (>= 2.0, < 4)
     concurrent-ruby (1.3.3)
     connection_pool (2.4.1)
     crass (1.0.6)
@@ -369,6 +372,7 @@ DEPENDENCIES
   byebug
   capybara
   carrierwave
+  carrierwave-aws
   debug
   devise
   devise-bootstrap-views
