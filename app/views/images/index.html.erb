@@ -17,7 +17,11 @@
     <% @images.each do |image| %>
       <tr>
         <td><%= link_to image.name, image_path(image) %></td>
-        <td><%= image_tag image.picture.url, size: "100x100" %></td>
+          <td>
+            <div class="image-container">
+              <%= image_tag image.picture.url, class: "responsive-image" %>
+            </div>
+          </td>
         <td>
           <%= link_to("View", image_path(image), class: "btn btn-success") %>
 
