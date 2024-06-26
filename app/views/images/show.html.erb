@@ -1,10 +1,21 @@
-<p style="color: green"><%= notice %></p>
+<%- model_class = Image -%>
 
-<%= render @image %>
-
-<div>
-  <%= link_to "Edit this image", edit_image_path(@image) %> |
-  <%= link_to "Back to images", images_path %>
-
-  <%= button_to "Destroy this image", @image, method: :delete %>
+<div class="page-header">
+  <h1><%=t ".title", default: model_class.model_name.human.titleize %></h1>
 </div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @image.name %></dd>
+  <dt></dt>
+  <dd><%= image_tag(@image.picture.url, class: "responsive-image") if @image.picture? %></dd>
+</dl>
+
+<%= link_to("Back", images_path, class: "btn btn-dark") %>
+
+<%= link_to("Edit", edit_image_path(@image), class: "btn btn-warning") %>
+
+<%= link_to("Delete", image_path(@image), class: "btn btn-danger", data: { turbo_method: :delete, confirm: "Are you sure?" }) %>
+
+<%= link_to("All Images", images_path, class: "btn btn-info") %>
+
