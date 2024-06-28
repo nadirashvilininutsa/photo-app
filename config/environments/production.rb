@@ -98,16 +98,6 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
   config.action_mailer.delivery_method = :smtp
- 
-  config.action_mailer.smtp_settings = {
-    user_name: 'apikey',
-    password: Rails.application.credentials.SENDGRID_PASSWORD,
-    domain: 'ninutsa-photo-app-cf95b69356c6.herokuapp.com',
-    address: 'smtp.sendgrid.net',
-    port: 587,
-    authentication: :plain,
-    enable_starttls_auto: true
-  }
 
   config.action_mailer.default_url_options = { host: "ninutsa-photo-app-cf95b69356c6.herokuapp.com", protocol: "https" }
 end

@@ -27,8 +27,6 @@ gem "sassc-rails"
 gem "devise"
 gem "devise-bootstrap-views"
 
-gem 'sendgrid-ruby'
-
 gem "stripe"
 
 gem "byebug"
