@@ -4,18 +4,21 @@
   <h1><%=t ".title", default: model_class.model_name.human.titleize %></h1>
 </div>
 
+<div class="page-header">
+  <div class="row align-items-center">
+    <div class="col-12 col-md-6">
+      <h3 class="font-weight-normal"><strong><%= model_class.human_attribute_name(:name) %>:</strong> <%= @image.name %></h3>
+    </div>
+    <div class="col-12 col-md-6 d-flex justify-content-md-end mt-2 mt-md-0">
+      <%= link_to("Back", images_path, class: "btn btn-dark me-2") %>
+      <%= link_to("Edit", edit_image_path(@image), class: "btn btn-warning me-2") %>
+      <%= link_to("Delete", image_path(@image), class: "btn btn-danger me-2", data: { turbo_method: :delete, confirm: "Are you sure?" }) %>
+      <%= link_to("All Images", images_path, class: "btn btn-info") %>
+    </div>
+  </div>
+</div>
+
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @image.name %></dd>
-  <dt></dt>
-  <dd><%= image_tag(@image.picture.url, class: "responsive-image") if @image.picture? %></dd>
+  <dd class="my-3"><%= image_tag(@image.picture.url, class: "img-fluid rounded d-block mx-auto") if @image.picture? %></dd>
 </dl>
-
-<%= link_to("Back", images_path, class: "btn btn-dark") %>
-
-<%= link_to("Edit", edit_image_path(@image), class: "btn btn-warning") %>
-
-<%= link_to("Delete", image_path(@image), class: "btn btn-danger", data: { turbo_method: :delete, confirm: "Are you sure?" }) %>
-
-<%= link_to("All Images", images_path, class: "btn btn-info") %>
 
