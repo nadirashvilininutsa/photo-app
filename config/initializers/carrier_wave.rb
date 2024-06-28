@@ -18,7 +18,7 @@ if Rails.env.production?
   CarrierWave.configure do |config|
     config.storage    = :aws
     config.aws_bucket = Rails.application.credentials.AWS_bucket
-    config.aws_acl    = 'public-read'
+    # config.aws_acl    = 'public-read'
 
     config.aws_credentials = {
       access_key_id:     Rails.application.credentials.AWS_access_key_id,
