@@ -13,21 +13,20 @@
 }
 
 .jumbotron {
-  text-align: center;
   background-image: asset-url('meeting.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  width: 100%;
-  height: auto;
   color: #fff;
   font-family: 'Helvetica Neue' !important;
   font-stretch: expanded;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  margin-left: 15px;
-  margin-right: 15px;
   text-shadow: -1px 0 #555, 0 1px #555, 1px 0 #555, 0 -1px #555;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
 }
 
 .no-left-padding {
